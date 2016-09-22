@@ -1,0 +1,38 @@
+{
+  "name": "passport-naver-token",
+  "version": "1.0.0",
+  "description": "Naver token authentication strategy for Passport",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/jihee33/passport-naver-token"
+  },
+  "keywords": [
+    "passport",
+    "naver",
+    "auth",
+    "authentication"
+  ],
+  "author": {
+    "name": "Jihee Jeong",
+    "email": "jiheejeong93@gmail.com",
+    "url": "http://www.penree.com/"
+  },
+  "contributors": [
+    {
+      "name": "Hongrae Kim",
+      "email": "taho1897@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.6.1",
+    "express-session": "^1.6.5",
+    "jade": "^1.4.2",
+    "passport": "^0.2.0",
+    "passport-oauth": "^1.0.0"
+  }
+}
