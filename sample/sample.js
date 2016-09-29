@@ -38,14 +38,9 @@ passport.use(new NaverTokenStrategy({
 var app = express();
 app.use(passport.initialize());
 
-app.get("/auth/naver/token", passport.authenticate('naver-token', null), function(req, res, next){
-	if (err) return next(err);
-
-	if (req.user) {
-		req.send('success');
-	} else {
-		req.send('fail');
-	}
+app.get("/auth/naver/token", passport.authenticate('naver-token', null), function(req, res){
+// do something with req.user
+	res.send(req.user ? 200 : 401);
 });
 
 app.listen(3000);
