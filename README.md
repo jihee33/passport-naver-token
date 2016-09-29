@@ -20,7 +20,8 @@ GET /auth/naver/token?access_token=[ACCESS_TOKEN]
 
 ####Authenticate Requests
 ```js
-app.get("/auth/naver/token", passport.authenticate('naver-token', null), function(req, res, next){
+app.get("/auth/naver/token", passport.authenticate('naver-token', null),
+function(req, res, next){
 	// do something with req.user 
     res.send(req.user ? 200 : 401);
 });
