@@ -6,19 +6,35 @@ By plugging into Passport, Naver authentication can be easily and unobtrusively 
 
 It forked from [passport-naver](https://github.com/naver/passport-naver) and refered from [passport-facebook-token](https://github.com/drudge/passport-facebook-token).
 
-##Install
+## Install
 ```sh
  $ npm install passport-naver-token
 ```
 
 ## How to Use
 
-#### Sending access_token as a Query parameter
+### Configure Strategy
+
+```
+const NaverTokenStrategy = require('passport-naver-token');
+ 
+passport.use(new NaverTokenStrategy({
+    clientID: NAVER_CLIENT_ID,
+    clientSecret: NAVER_CLIENT_SECRET
+  }, function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({naverId: profile.id}, function (error, user) {
+      return done(error, user);
+    });
+  }
+));
+```
+
+### Sending access_token as a Query parameter
 ```
 GET /auth/naver/token?access_token=[ACCESS_TOKEN]
 ```
 
-####Authenticate Requests
+### Authenticate Requests
 ```js
 app.get("/auth/naver/token", passport.authenticate('naver-token', null),
 function(req, res, next){
